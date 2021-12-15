@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragment_login">
+
+    <fragment
+        android:id="@+id/fragment_login"
+        android:name="io.appwrite.videoreel.login.LoginFragment"
+        android:label="@string/log_in"
+        tools:layout="@layout/fragment_login">
+
+        <action
+            android:id="@+id/loginToFeedAction"
+            app:destination="@id/fragment_feed"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim">
+
+            <argument
+                android:name="roomId"
+                app:argType="string"
+                app:nullable="false" />
+
+            <argument
+                android:name="roomName"
+                app:argType="string"
+                app:nullable="false" />
+
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_feed"
+        android:name="io.appwrite.videoreel.feed.FeedFragment"
+        android:label="@string/feed"
+        tools:layout="@layout/fragment_feed">
+
+        <argument
+            android:name="sessionId"
+            app:argType="string"
+            app:nullable="false" />
+
+        <argument
+            android:name="userId"
+            app:argType="string"
+            app:nullable="false" />
+
+        <action
+            android:id="@+id/feedToMovieDetailAction"
+            app:destination="@id/fragment_content_detail"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim">
+
+            <argument
+                android:name="showId"
+                app:argType="string"
+                app:nullable="false" />
+
+        </action>
+
+        <action
+            android:id="@+id/feedToShowDetailAction"
+            app:destination="@id/fragment_content_detail"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim">
+
+            <argument
+                android:name="showId"
+                app:argType="string"
+                app:nullable="false" />
+
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_content_detail"
+        android:name="io.appwrite.videoreel.feed.FeedFragment"
+        android:label="@string/details"
+        tools:layout="@layout/fragment_content_detail">
+
+        <argument
+            android:name="contentId"
+            app:argType="string"
+            app:nullable="false" />
+
+        <action
+            android:id="@+id/contentDetailToConsumeAction"
+            app:destination="@id/consumeContentFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim">
+
+            <argument
+                android:name="contentId"
+                app:argType="string"
+                app:nullable="false" />
+
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/consumeContentFragment"
+        android:name="io.appwrite.videoreel.feed.FeedFragment"
+        android:label="@string/consume"
+        tools:layout="@layout/fragment_feed">
+
+        <argument
+            android:name="contentId"
+            app:argType="string"
+            app:nullable="false" />
+
+    </fragment>
+</navigation>

@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">VideoReel</string>
+    <string name="user_name_invalid">Invalid user name.</string>
+    <string name="user_password_invalid">Invalid password.</string>
+    <string name="create_session_failed">Create session failed.</string>
+    <string name="app_title">VideoReel</string>
+    <string name="log_in">Log In</string>
+    <string name="register">register</string>
+    <string name="built_with">built with</string>
+    <string name="hint_user_name">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="feed">Feed</string>
+    <string name="details">Content Detail</string>
+    <string name="consume">Consume</string>
+</resources>
