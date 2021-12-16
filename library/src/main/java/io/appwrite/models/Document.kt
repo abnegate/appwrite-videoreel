@@ -35,8 +35,8 @@ data class Document(
         fun from(map: Map<String, Any>) = Document(
             id = map["\$id"] as String,
             collection = map["\$collection"] as String,
-            read = map["\$read"] as List<Any>,
-            write = map["\$write"] as List<Any>,
+            read = map["\$read"] as? List<Any> ?: listOf(),
+            write = map["\$write"] as? List<Any> ?: listOf(),
             data = map
         )
     }

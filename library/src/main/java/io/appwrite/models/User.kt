@@ -26,7 +26,7 @@ data class User(
      * User status. Pass `true` for enabled and `false` for disabled.
      *
      */
-    val status: Boolean,
+    val status: Long,
 
     /**
      * Unix timestamp of the most recent password update
@@ -58,7 +58,7 @@ data class User(
             id = map["\$id"] as String,
             name = map["name"] as String,
             registration = map["registration"] as Long,
-            status = map["status"] as Boolean,
+            status = map["status"] as Long,
             passwordUpdate = map["passwordUpdate"] as Long,
             email = map["email"] as String,
             emailVerification = map["emailVerification"] as Boolean,

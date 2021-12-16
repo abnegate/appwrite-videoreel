@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs.kotlin'
 }
 
 android {
@@ -38,8 +39,10 @@ android {
 dependencies {
 
     implementation project(path: ':library')
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
     def nav_version = "2.3.5"
+    def media2_version = "1.2.0"
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.0'
@@ -55,6 +58,10 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.8'
     implementation 'com.github.bumptech.glide:glide:4.12.0'
     kapt 'com.github.bumptech.glide:compiler:4.12.0'
+
+    implementation "androidx.media2:media2-session:$media2_version"
+    implementation "androidx.media2:media2-widget:$media2_version"
+    implementation "androidx.media2:media2-player:$media2_version"
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

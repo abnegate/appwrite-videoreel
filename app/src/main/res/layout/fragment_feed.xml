@@ -1,13 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".feed.FeedFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
+    <data>
+
+        <variable
+            name="viewModel"
+            type="io.appwrite.videoreel.feed.FeedViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Hello" />
+        tools:context=".feed.FeedFragment">
 
-</FrameLayout>
+        <androidx.media2.widget.VideoView
+            android:id="@+id/previewImage"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/teal_700"
+            app:enableControlView="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_min="250dp"
+            app:layout_constraintHeight_percent="0.3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/appIconImage"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="@dimen/margin_4"
+            android:background="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/userProfileImage"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="@dimen/margin_4"
+            android:background="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/previewThumbnailImage"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="@dimen/margin_4"
+            android:layout_marginTop="@dimen/margin_4"
+            android:background="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/appIconImage" />
+
+        <TextView
+            android:id="@+id/previewDescriptionText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_4"
+            android:text="@string/lorem"
+            android:textSize="@dimen/text_paragraph"
+            app:layout_constraintBottom_toTopOf="@id/buttonBarrier"
+            app:layout_constraintEnd_toEndOf="@id/previewThumbnailImage"
+            app:layout_constraintStart_toStartOf="@id/previewThumbnailImage"
+            app:layout_constraintTop_toBottomOf="@id/previewThumbnailImage" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/buttonBarrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="top"
+            app:constraint_referenced_ids="playButton, moreInfoButton" />
+
+        <Button
+            android:id="@+id/playButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_4"
+            android:text="@string/play"
+            app:layout_constraintEnd_toStartOf="@id/moreInfoButton"
+            app:layout_constraintStart_toStartOf="@id/previewDescriptionText"
+            app:layout_constraintTop_toBottomOf="@id/buttonBarrier" />
+
+        <Button
+            android:id="@+id/moreInfoButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_4"
+            android:layout_marginTop="@dimen/margin_4"
+            android:text="@string/moreInfo"
+            app:layout_constraintStart_toEndOf="@id/playButton"
+            app:layout_constraintTop_toBottomOf="@id/buttonBarrier" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/categoryRecycler"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/previewImage"
+            tools:listitem="@layout/item_feed_category"
+            tools:itemCount="3"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,8 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="color_card_square_radius">4dp</dimen>
-    <dimen name="color_picker_view_size">240dp</dimen>
-    <dimen name="color_card_size">48dp</dimen>
-    <dimen name="color_card_radius">24dp</dimen>
-    <dimen name="color_card_margin">6dp</dimen>
+    <dimen name="card_height">48dp</dimen>
+    <dimen name="card_radius">24dp</dimen>
+
+    <dimen name="stroke_7">2dp</dimen>
+    <dimen name="stroke_6">4dp</dimen>
+    <dimen name="stroke_5">6dp</dimen>
+    <dimen name="stroke_4">8dp</dimen>
+    <dimen name="stroke_3">12dp</dimen>
+    <dimen name="stroke_2">16dp</dimen>
+    <dimen name="stroke_1">24dp</dimen>
+
+    <dimen name="radius_7">2dp</dimen>
+    <dimen name="radius_6">4dp</dimen>
+    <dimen name="radius_5">6dp</dimen>
+    <dimen name="radius_4">8dp</dimen>
+    <dimen name="radius_3">12dp</dimen>
+    <dimen name="radius_2">16dp</dimen>
+    <dimen name="radius_1">24dp</dimen>
+
+    <dimen name="margin_7">2dp</dimen>
+    <dimen name="margin_6">4dp</dimen>
+    <dimen name="margin_5">6dp</dimen>
+    <dimen name="margin_4">8dp</dimen>
+    <dimen name="margin_3">12dp</dimen>
+    <dimen name="margin_2">16dp</dimen>
+    <dimen name="margin_1">24dp</dimen>
+
+    <dimen name="padding_7">2dp</dimen>
+    <dimen name="padding_6">4dp</dimen>
+    <dimen name="padding_5">6dp</dimen>
+    <dimen name="padding_4">8dp</dimen>
+    <dimen name="padding_3">12dp</dimen>
+    <dimen name="padding_2">16dp</dimen>
+    <dimen name="padding_1">24dp</dimen>
+
+    <dimen name="text_7">6sp</dimen>
+    <dimen name="text_6">8sp</dimen>
+    <dimen name="text_5">10sp</dimen>
+    <dimen name="text_4">12sp</dimen>
+    <dimen name="text_3">14sp</dimen>
+    <dimen name="text_2">16sp</dimen>
+    <dimen name="text_1">18sp</dimen>
+
+    <dimen name="text_heading">@dimen/text_1</dimen>
+    <dimen name="text_subheading">@dimen/text_3</dimen>
+    <dimen name="text_paragraph">@dimen/text_4</dimen>
 </resources>

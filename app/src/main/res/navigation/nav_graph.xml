@@ -20,12 +20,12 @@
             app:popExitAnim="@anim/nav_default_pop_exit_anim">
 
             <argument
-                android:name="roomId"
+                android:name="userId"
                 app:argType="string"
                 app:nullable="false" />
 
             <argument
-                android:name="roomName"
+                android:name="sessionId"
                 app:argType="string"
                 app:nullable="false" />
 
@@ -39,33 +39,34 @@
         tools:layout="@layout/fragment_feed">
 
         <argument
-            android:name="sessionId"
+            android:name="userId"
             app:argType="string"
             app:nullable="false" />
 
         <argument
-            android:name="userId"
+            android:name="sessionId"
             app:argType="string"
             app:nullable="false" />
 
         <action
             android:id="@+id/feedToMovieDetailAction"
-            app:destination="@id/fragment_content_detail"
+            app:destination="@id/fragment_movie_detail"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim">
 
             <argument
-                android:name="showId"
+                android:name="movieId"
                 app:argType="string"
                 app:nullable="false" />
 
         </action>
 
+
         <action
             android:id="@+id/feedToShowDetailAction"
-            app:destination="@id/fragment_content_detail"
+            app:destination="@id/fragment_show_detail"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
@@ -80,18 +81,18 @@
     </fragment>
 
     <fragment
-        android:id="@+id/fragment_content_detail"
-        android:name="io.appwrite.videoreel.feed.FeedFragment"
-        android:label="@string/details"
-        tools:layout="@layout/fragment_content_detail">
+        android:id="@+id/fragment_movie_detail"
+        android:name="io.appwrite.videoreel.movie.MovieDetailFragment"
+        android:label="@string/movie_details"
+        tools:layout="@layout/fragment_movie_detail">
 
         <argument
-            android:name="contentId"
+            android:name="movieId"
             app:argType="string"
             app:nullable="false" />
 
         <action
-            android:id="@+id/contentDetailToConsumeAction"
+            android:id="@+id/movieDetailToConsumeAction"
             app:destination="@id/consumeContentFragment"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim"
@@ -99,7 +100,34 @@
             app:popExitAnim="@anim/nav_default_pop_exit_anim">
 
             <argument
-                android:name="contentId"
+                android:name="movieId"
+                app:argType="string"
+                app:nullable="false" />
+
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_show_detail"
+        android:name="io.appwrite.videoreel.show.ShowDetailFragment"
+        android:label="@string/show_details"
+        tools:layout="@layout/fragment_show_detail">
+
+        <argument
+            android:name="showId"
+            app:argType="string"
+            app:nullable="false" />
+
+        <action
+            android:id="@+id/showDetailToConsumeAction"
+            app:destination="@id/consumeContentFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim">
+
+            <argument
+                android:name="showId"
                 app:argType="string"
                 app:nullable="false" />
 
@@ -108,14 +136,19 @@
 
     <fragment
         android:id="@+id/consumeContentFragment"
-        android:name="io.appwrite.videoreel.feed.FeedFragment"
+        android:name="io.appwrite.videoreel.consume.ConsumeContentFragment"
         android:label="@string/consume"
-        tools:layout="@layout/fragment_feed">
+        tools:layout="@layout/fragment_consume_content">
 
         <argument
-            android:name="contentId"
+            android:name="showEpisodeId"
             app:argType="string"
-            app:nullable="false" />
+            app:nullable="true" />
+
+        <argument
+            android:name="movieId"
+            app:argType="string"
+            app:nullable="true" />
 
     </fragment>
 </navigation>

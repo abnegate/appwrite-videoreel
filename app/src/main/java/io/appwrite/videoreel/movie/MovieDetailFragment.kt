@@ -1,4 +1,4 @@
-package io.appwrite.videoreel.content
+package io.appwrite.videoreel.movie
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,18 +11,23 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import io.appwrite.Client
 import io.appwrite.videoreel.R
-import io.appwrite.videoreel.core.*
-import io.appwrite.videoreel.feed.FeedViewModel
+import io.appwrite.videoreel.content.ContentDetailViewModelFactory
+import io.appwrite.videoreel.core.Configuration
+import io.appwrite.videoreel.core.Message
+import io.appwrite.videoreel.core.hideSoftKeyBoard
+import io.appwrite.videoreel.databinding.FragmentMovieDetailBinding
 
-class ContentDetailFragment : Fragment() {
+class MovieDetailFragment : Fragment() {
 
-    private val args by navArgs<ContentDetailFragmentArgs>()
+    private val args by navArgs<MovieDetailFragmentArgs>()
 
-    private val viewModel by viewModels<FeedViewModel> {
+    private val viewModel by viewModels<MovieDetailViewModel> {
         ContentDetailViewModelFactory(
-            Client(requireContext())
+            client = Client(requireContext())
                 .setEndpoint(Configuration.ENDPOINT)
-                .setProject(Configuration.PROJECT_ID)
+                .setProject(Configuration.PROJECT_ID),
+            movieId = args.movieId,
+            showId = null
         )
     }
 
@@ -30,9 +35,9 @@ class ContentDetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
-        val binding = DataBindingUtil.inflate<FragmentContentDetailBinding>(
+        val binding = DataBindingUtil.inflate<FragmentMovieDetailBinding>(
             inflater,
-            R.layout.fragment_content_detail,
+            R.layout.fragment_movie_detail,
             container,
             false
         )

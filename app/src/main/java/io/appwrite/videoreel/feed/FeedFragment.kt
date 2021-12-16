@@ -12,8 +12,11 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import io.appwrite.Client
 import io.appwrite.videoreel.R
-import io.appwrite.videoreel.content.ClientViewModelFactory
-import io.appwrite.videoreel.core.*
+import io.appwrite.videoreel.core.ClientViewModelFactory
+import io.appwrite.videoreel.core.Configuration
+import io.appwrite.videoreel.core.Message
+import io.appwrite.videoreel.core.hideSoftKeyBoard
+import io.appwrite.videoreel.databinding.FragmentFeedBinding
 import io.appwrite.videoreel.model.Movie
 import io.appwrite.videoreel.model.Show
 
@@ -40,14 +43,31 @@ class FeedFragment : Fragment() {
             false
         )
 
+        val adapter = FeedCategoryAdapter()
+        binding.categoryRecycler.adapter = adapter
         binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = viewModel
 
         val view = binding.root
-        val pg = view.findViewById<ProgressBar>(R.id.progress)
+        val progressBar = view.findViewById<ProgressBar>(R.id.progress)
 
-        viewModel.isBusy.observe(viewLifecycleOwner) { showBusy(it, pg) }
+        viewModel.movies.observe(viewLifecycleOwner) { movies ->
+            val genres = movies.flatMap { it.genres }.toHashSet()
+            val groups = genres.map { genre ->
+                genre to movies.filter { movie ->
+                    movie.genres.contains(genre)
+                }
+            }
+            adapter.submitList(groups)
+        }
+        viewModel.shows.observe(viewLifecycleOwner) {
+
+        }
+        viewModel.isBusy.observe(viewLifecycleOwner) { showBusy(it, progressBar) }
         viewModel.message.observe(viewLifecycleOwner, ::showMessage)
+
+        viewModel.getMovies()
+        viewModel.getShows()
 
         return view
     }

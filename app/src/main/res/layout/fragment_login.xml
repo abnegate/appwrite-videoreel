@@ -9,8 +9,7 @@
             type="io.appwrite.videoreel.login.LoginViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -37,7 +36,7 @@
         <View
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="@drawable/bg_rect"
+            android:background="@drawable/bg_rect_frame"
             app:layout_constraintBottom_toBottomOf="@id/nameText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

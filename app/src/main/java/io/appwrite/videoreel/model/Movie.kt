@@ -8,11 +8,11 @@ data class Movie(
     val name: String,
     val description: String,
     val thumbnailImageId: String,
-    val cast: String,
-    val tags: String,
-    val genres: String,
-    val releaseYear: UShort = 0u,
-    val durationMinutes: UShort = 0u,
+    val cast: List<String>,
+    val tags: List<String>,
+    val genres: List<String>,
+    val releaseYear: Long,
+    val durationMinutes: Long,
     val ageRestriction: AgeRestriction,
 ) {
     constructor(map: Map<String, Any>) : this(
@@ -20,12 +20,12 @@ data class Movie(
         name = map["name"].toString(),
         description = map["description"].toString(),
         thumbnailImageId = map["thumbnailImageId"].toString(),
-        cast = map["cast"].toString(),
-        tags = map["tags"].toString(),
-        genres = map["genres"].toString(),
-        releaseYear = map["releaseYear"] as UShort,
-        durationMinutes = map["durationMinutes"] as UShort,
-        ageRestriction = AgeRestriction.valueOf(map["ageRestrcition"].toString())
+        cast = map["cast"] as List<String>,
+        tags = map["tags"] as List<String>,
+        genres = map["genres"]as List<String>,
+        releaseYear = map["releaseYear"] as Long,
+        durationMinutes = map["durationMinutes"] as Long,
+        ageRestriction = AgeRestriction.valueOf(map["ageRestriction"].toString())
     )
 }
 
