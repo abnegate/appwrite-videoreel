@@ -1,14 +1,14 @@
 package io.appwrite.videoreel.feed
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
-import io.appwrite.videoreel.R
 import io.appwrite.videoreel.databinding.ItemContentCellBinding
 import io.appwrite.videoreel.model.Movie
 
-class ContentCellAdapter :
+class ContentCellAdapter(private val onItemClicked: (View, Movie) -> Unit) :
     ListAdapter<Movie, ContentCellViewHolder>(object : DiffUtil.ItemCallback<Movie>() {
         override fun areItemsTheSame(oldItem: Movie, newItem: Movie): Boolean {
             return oldItem.id == newItem.id
@@ -29,6 +29,6 @@ class ContentCellAdapter :
     }
 
     override fun onBindViewHolder(holder: ContentCellViewHolder, position: Int) {
-        holder.bind(getItem(position))
+        holder.bind(getItem(position), onItemClicked)
     }
 }

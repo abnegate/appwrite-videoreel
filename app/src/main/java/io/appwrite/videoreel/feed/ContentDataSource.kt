@@ -17,9 +17,13 @@ class ContentDataSource(
 
     @Throws
     suspend fun getMovies(): List<Movie> {
-        val movies = database
-            .listDocuments(Configuration.MOVIE_COLLECTION_ID)
-        return movies.documents.map { Movie(it.data) }
+        val movieDocuments = database.listDocuments(Configuration.MOVIE_COLLECTION_ID)
+        val movies = movieDocuments.documents.map { Movie(it.data) }.toMutableList()
+        // TODO: Remove test duplicated movies
+        for (i in 0 until 1000) {
+            movies += movies[0]
+        }
+        return movies
     }
 
     @Throws
@@ -30,7 +34,7 @@ class ContentDataSource(
     }
 
     @Throws
-    suspend fun getMovie(movieId: String): Movie? {
+    suspend fun getMovie(movieId: String): Movie {
         val movie = database.getDocument(
             Configuration.MOVIE_COLLECTION_ID,
             movieId
@@ -39,7 +43,7 @@ class ContentDataSource(
     }
 
     @Throws
-    suspend fun getShow(showId: String): Show? {
+    suspend fun getShow(showId: String): Show {
         val show = database.getDocument(
             Configuration.SHOW_COLLECTION_ID,
             showId

@@ -1,14 +1,15 @@
 package io.appwrite.videoreel.movie
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
+import com.google.android.material.transition.MaterialContainerTransform
 import io.appwrite.Client
 import io.appwrite.videoreel.R
 import io.appwrite.videoreel.content.ContentDetailViewModelFactory
@@ -31,13 +32,29 @@ class MovieDetailFragment : Fragment() {
         )
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+//        sharedElementEnterTransition = MaterialContainerTransform().apply {
+//            drawingViewId = R.id.nav_host_fragment
+//            duration = 1200.toLong()
+//            scrimColor = Color.TRANSPARENT
+//
+//            val typedArray = requireContext().obtainStyledAttributes(
+//                intArrayOf(R.attr.colorSurface)
+//            )
+//            val colorSet = typedArray.getColor(0, Color.MAGENTA)
+//            setAllContainerColors(colorSet)
+//            typedArray.recycle()
+//        }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
-        val binding = DataBindingUtil.inflate<FragmentMovieDetailBinding>(
+        val binding = FragmentMovieDetailBinding.inflate(
             inflater,
-            R.layout.fragment_movie_detail,
             container,
             false
         )

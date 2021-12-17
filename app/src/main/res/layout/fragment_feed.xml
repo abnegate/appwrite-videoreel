@@ -9,7 +9,8 @@
             type="io.appwrite.videoreel.feed.FeedViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".feed.FeedFragment">
@@ -97,13 +98,14 @@
             android:id="@+id/categoryRecycler"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:transitionGroup="true"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/previewImage"
-            tools:listitem="@layout/item_feed_category"
-            tools:itemCount="3"/>
+            tools:itemCount="3"
+            tools:listitem="@layout/item_feed_category" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

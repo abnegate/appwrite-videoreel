@@ -22,7 +22,7 @@ data class Movie(
         thumbnailImageId = map["thumbnailImageId"].toString(),
         cast = map["cast"] as List<String>,
         tags = map["tags"] as List<String>,
-        genres = map["genres"]as List<String>,
+        genres = map["genres"] as List<String>,
         releaseYear = map["releaseYear"] as Long,
         durationMinutes = map["durationMinutes"] as Long,
         ageRestriction = AgeRestriction.valueOf(map["ageRestriction"].toString())

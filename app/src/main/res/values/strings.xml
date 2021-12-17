@@ -17,4 +17,6 @@
     <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur molestie, dui at varius tempor, ligula massa congue ligula, eu luctus massa tellus nec lorem.</string>
     <string name="play">Play</string>
     <string name="moreInfo">More Info</string>
+    <string name="content_card_transition_name">content_card_%1$s</string>
+    <string name="content_card_detail_transition_name">content_card_detail</string>
 </resources>

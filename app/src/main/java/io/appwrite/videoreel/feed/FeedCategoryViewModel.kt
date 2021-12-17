@@ -6,5 +6,4 @@ import io.appwrite.videoreel.model.Movie
 class FeedCategoryViewModel(
     val categoryName: String,
     val movies: List<Movie>,
-) : BaseViewModel() {
-}
+) : BaseViewModel()

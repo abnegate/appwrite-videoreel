@@ -1,13 +1,14 @@
 package io.appwrite.videoreel.feed
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import io.appwrite.videoreel.databinding.ItemFeedCategoryBinding
 import io.appwrite.videoreel.model.Movie
 
-class FeedCategoryAdapter :
+class FeedCategoryAdapter(private val onNestedItemSelected: (View, Movie) -> Unit) :
     ListAdapter<Pair<String, List<Movie>>, FeedCategoryViewHolder>(object :
         DiffUtil.ItemCallback<Pair<String, List<Movie>>>() {
         override fun areItemsTheSame(
@@ -35,6 +36,6 @@ class FeedCategoryAdapter :
     }
 
     override fun onBindViewHolder(holder: FeedCategoryViewHolder, position: Int) {
-        holder.bind(getItem(position))
+        holder.bind(getItem(position), onNestedItemSelected)
     }
 }
