@@ -6,6 +6,29 @@
     app:startDestination="@id/fragment_login">
 
     <fragment
+        android:id="@+id/fragment_title"
+        android:name="io.appwrite.videoreel.title.TitleFragment"
+        android:label="@string/log_in"
+        tools:layout="@layout/fragment_login">
+
+        <action
+            android:id="@+id/titleToLoginAction"
+            app:destination="@id/fragment_login"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+
+        <action
+            android:id="@+id/titleToRegisterAction"
+            app:destination="@id/fragment_register"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+
+    <fragment
         android:id="@+id/fragment_login"
         android:name="io.appwrite.videoreel.login.LoginFragment"
         android:label="@string/log_in"

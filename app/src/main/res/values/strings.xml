@@ -3,9 +3,9 @@
     <string name="user_name_invalid">Invalid user name.</string>
     <string name="user_password_invalid">Invalid password.</string>
     <string name="create_session_failed">Create session failed.</string>
-    <string name="app_title">VideoReel</string>
+    <string name="app_title">Almost Netflix</string>
     <string name="log_in">Log In</string>
-    <string name="register">register</string>
+    <string name="register">Register</string>
     <string name="built_with">built with</string>
     <string name="hint_user_name">Email</string>
     <string name="hint_password">Password</string>
