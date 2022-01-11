@@ -11,7 +11,6 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.google.android.material.card.MaterialCardView
 import com.google.android.material.transition.MaterialElevationScale
 import io.appwrite.Client
 import io.appwrite.videoreel.R
@@ -21,7 +20,6 @@ import io.appwrite.videoreel.core.Message
 import io.appwrite.videoreel.core.hideSoftKeyBoard
 import io.appwrite.videoreel.databinding.FragmentFeedBinding
 import io.appwrite.videoreel.model.Movie
-import io.appwrite.videoreel.model.Show
 
 class FeedFragment : Fragment() {
 
@@ -97,12 +95,6 @@ class FeedFragment : Fragment() {
         findNavController().navigate(
             FeedFragmentDirections.feedToMovieDetailAction(movie.id),
             FragmentNavigatorExtras(view to detailTransitionName)
-        )
-    }
-
-    private fun navigateToShowDetail(show: Show) {
-        findNavController().navigate(
-            FeedFragmentDirections.feedToShowDetailAction(show.id)
         )
     }
 
