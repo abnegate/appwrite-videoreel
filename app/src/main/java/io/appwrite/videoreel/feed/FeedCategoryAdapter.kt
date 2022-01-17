@@ -6,25 +6,28 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import io.appwrite.videoreel.databinding.ItemFeedCategoryBinding
+import io.appwrite.videoreel.model.Category
 import io.appwrite.videoreel.model.Movie
 
 class FeedCategoryAdapter(private val onNestedItemSelected: (View, Movie) -> Unit) :
-    ListAdapter<Pair<String, List<Movie>>, FeedCategoryViewHolder>(object :
-        DiffUtil.ItemCallback<Pair<String, List<Movie>>>() {
+    ListAdapter<Map.Entry<Category, Set<Movie>>, FeedCategoryViewHolder>(object :
+        DiffUtil.ItemCallback<Map.Entry<Category, Set<Movie>>>() {
+
         override fun areItemsTheSame(
-            oldItem: Pair<String, List<Movie>>,
-            newItem: Pair<String, List<Movie>>,
+            oldItem: Map.Entry<Category, Set<Movie>>,
+            newItem: Map.Entry<Category, Set<Movie>>
         ): Boolean {
-            return oldItem.first == newItem.first
+            return oldItem.key == newItem.key
         }
 
         override fun areContentsTheSame(
-            oldItem: Pair<String, List<Movie>>,
-            newItem: Pair<String, List<Movie>>,
+            oldItem: Map.Entry<Category, Set<Movie>>,
+            newItem: Map.Entry<Category, Set<Movie>>,
         ): Boolean {
-            return oldItem == newItem
+            return oldItem.value == newItem.value
         }
     }) {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FeedCategoryViewHolder {
         return FeedCategoryViewHolder(
             ItemFeedCategoryBinding.inflate(

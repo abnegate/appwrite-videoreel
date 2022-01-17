@@ -54,7 +54,7 @@ class FeedFragment : Fragment() {
         val progressBar = view.findViewById<ProgressBar>(R.id.progress)
 
         viewModel.moviesByCategory.observe(viewLifecycleOwner) {
-            adapter.submitList(it)
+            adapter.submitList(it.entries.toList())
         }
         viewModel.selectedMovie.observe(viewLifecycleOwner) {
             navigateToMovieDetail(it.first, it.second)

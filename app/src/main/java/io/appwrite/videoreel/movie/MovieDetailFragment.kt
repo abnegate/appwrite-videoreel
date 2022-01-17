@@ -27,8 +27,7 @@ class MovieDetailFragment : Fragment() {
             client = Client(requireContext())
                 .setEndpoint(Configuration.ENDPOINT)
                 .setProject(Configuration.PROJECT_ID),
-            movieId = args.movieId,
-            showId = null
+            movieId = args.movieId
         )
     }
 

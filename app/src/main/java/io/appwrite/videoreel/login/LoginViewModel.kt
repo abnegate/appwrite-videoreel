@@ -34,6 +34,8 @@ class LoginViewModel(private val client: Client) : BaseViewModel() {
             }
 
             try {
+                val session1 = account.getSession("current")
+
                 val session = account.createSession(
                     username.value,
                     password.value

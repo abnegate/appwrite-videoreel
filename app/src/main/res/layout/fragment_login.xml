@@ -38,7 +38,7 @@
             android:textColor="@color/white"
             android:textSize="36sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@id/userNameField"
+            app:layout_constraintBottom_toTopOf="@id/userEmailField"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -61,14 +61,14 @@
             android:id="@+id/inputs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:constraint_referenced_ids="userNameField, userPasswordField, loginButton, registerButton" />
+            app:constraint_referenced_ids="userEmailField, userPasswordField, loginButton" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/userNameField"
+            android:id="@+id/userEmailField"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:hint="@string/hint_user_name"
+            android:hint="@string/hint_user_email"
             app:layout_constraintBottom_toTopOf="@id/userPasswordField"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -93,7 +93,7 @@
             app:layout_constraintBottom_toTopOf="@id/loginButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/userNameField"
+            app:layout_constraintTop_toBottomOf="@id/userEmailField"
             app:layout_constraintWidth_percent="0.9"
             app:passwordToggleEnabled="true"
             app:passwordToggleTint="?attr/colorPrimary">
@@ -114,23 +114,9 @@
             android:layout_marginTop="16dp"
             android:onClick="@{() -> viewModel.login()}"
             android:text="@string/log_in"
-            app:layout_constraintBottom_toTopOf="@id/registerButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/userPasswordField"
-            app:layout_constraintWidth_percent="0.9" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/registerButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:onClick="@{() -> viewModel.register()}"
-            android:text="@string/register"
-            android:backgroundTint="@color/white"
-            android:textColor="@color/red"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/loginButton"
             app:layout_constraintWidth_percent="0.9" />
 
         <TextView

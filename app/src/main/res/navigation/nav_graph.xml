@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/fragment_login">
+    app:startDestination="@id/fragment_title">
 
     <fragment
         android:id="@+id/fragment_title"
         android:name="io.appwrite.videoreel.title.TitleFragment"
         android:label="@string/log_in"
-        tools:layout="@layout/fragment_login">
+        tools:layout="@layout/fragment_title">
 
         <action
             android:id="@+id/titleToLoginAction"
@@ -52,6 +52,32 @@
                 app:argType="string"
                 app:nullable="false" />
 
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_register"
+        android:name="io.appwrite.videoreel.register.RegisterFragment"
+        android:label="@string/register"
+        tools:layout="@layout/fragment_register">
+
+        <action
+            android:id="@+id/registerToFeedAction"
+            app:destination="@id/fragment_feed"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim">
+
+            <argument
+                android:name="userId"
+                app:argType="string"
+                app:nullable="false" />
+
+            <argument
+                android:name="sessionId"
+                app:argType="string"
+                app:nullable="false" />
         </action>
     </fragment>
 

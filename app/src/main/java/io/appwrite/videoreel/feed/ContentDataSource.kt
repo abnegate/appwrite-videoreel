@@ -4,6 +4,7 @@ import io.appwrite.Client
 import io.appwrite.services.Database
 import io.appwrite.services.Realtime
 import io.appwrite.videoreel.core.Configuration
+import io.appwrite.videoreel.model.Category
 import io.appwrite.videoreel.model.Movie
 
 class ContentDataSource(
@@ -13,14 +14,21 @@ class ContentDataSource(
     private val realtime by lazy { Realtime(client) }
 
     @Throws
-    suspend fun getMovies(): List<Movie> {
-        val movieDocuments = database.listDocuments(Configuration.MOVIE_COLLECTION_ID)
-        val movies = movieDocuments.documents.map { Movie(it.data) }.toMutableList()
-        // TODO: Remove test duplicated movies
-        for (i in 0 until 1000) {
-            movies += movies[0]
-        }
-        return movies
+    suspend fun getMovies(
+        category: Category,
+    ): List<Movie> {
+        val movieDocuments = database.listDocuments(
+            category.collectionName ?: Configuration.MOVIE_COLLECTION_ID,
+            category.queries,
+            null,
+            null,
+            null,
+            null,
+            category.orderAttributes,
+            category.orderTypes
+        )
+        return movieDocuments.documents
+            .map { Movie(it.data) }
     }
 
     @Throws

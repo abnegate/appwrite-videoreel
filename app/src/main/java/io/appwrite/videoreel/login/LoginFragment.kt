@@ -23,6 +23,7 @@ class LoginFragment : Fragment() {
             Client(requireContext())
                 .setEndpoint(Configuration.ENDPOINT)
                 .setProject(Configuration.PROJECT_ID)
+                .setSelfSigned(true)
         )
     }
 
