@@ -80,7 +80,7 @@
                 android:layout_height="wrap_content"
                 android:imeOptions="actionDone"
                 android:inputType="textPersonName"
-                android:text="@={viewModel.password}" />
+                android:text="@={viewModel.name}" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
