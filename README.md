@@ -1,1 +1,1 @@
-# appwrite-videoreel
+# appwrite-almostnetflix

@@ -3,11 +3,41 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/fragment_title">
+    app:startDestination="@id/fragment_splash">
+
+    <fragment
+        android:id="@+id/fragment_splash"
+        android:name="io.appwrite.almostnetflix.splash.SplashFragment"
+        android:label="@string/splash"
+        tools:layout="@layout/fragment_splash">
+
+        <action
+            android:id="@+id/splashToTitleAction"
+            app:destination="@id/fragment_title"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+
+        <action
+            android:id="@+id/splashToFeedAction"
+            app:destination="@id/fragment_feed"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim">
+
+            <argument
+                android:name="userId"
+                app:argType="string"
+                app:nullable="false" />
+
+        </action>
+    </fragment>
 
     <fragment
         android:id="@+id/fragment_title"
-        android:name="io.appwrite.videoreel.title.TitleFragment"
+        android:name="io.appwrite.almostnetflix.title.TitleFragment"
         android:label="@string/log_in"
         tools:layout="@layout/fragment_title">
 
@@ -25,12 +55,14 @@
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+            app:popExitAnim="@anim/nav_default_pop_exit_anim">
+
+        </action>
     </fragment>
 
     <fragment
         android:id="@+id/fragment_login"
-        android:name="io.appwrite.videoreel.login.LoginFragment"
+        android:name="io.appwrite.almostnetflix.login.LoginFragment"
         android:label="@string/log_in"
         tools:layout="@layout/fragment_login">
 
@@ -47,17 +79,12 @@
                 app:argType="string"
                 app:nullable="false" />
 
-            <argument
-                android:name="sessionId"
-                app:argType="string"
-                app:nullable="false" />
-
         </action>
     </fragment>
 
     <fragment
         android:id="@+id/fragment_register"
-        android:name="io.appwrite.videoreel.register.RegisterFragment"
+        android:name="io.appwrite.almostnetflix.register.RegisterFragment"
         android:label="@string/register"
         tools:layout="@layout/fragment_register">
 
@@ -74,26 +101,17 @@
                 app:argType="string"
                 app:nullable="false" />
 
-            <argument
-                android:name="sessionId"
-                app:argType="string"
-                app:nullable="false" />
         </action>
     </fragment>
 
     <fragment
         android:id="@+id/fragment_feed"
-        android:name="io.appwrite.videoreel.feed.FeedFragment"
+        android:name="io.appwrite.almostnetflix.feed.FeedFragment"
         android:label="@string/feed"
         tools:layout="@layout/fragment_feed">
 
         <argument
             android:name="userId"
-            app:argType="string"
-            app:nullable="false" />
-
-        <argument
-            android:name="sessionId"
             app:argType="string"
             app:nullable="false" />
 
@@ -107,27 +125,11 @@
                 app:nullable="false" />
 
         </action>
-
-
-        <action
-            android:id="@+id/feedToShowDetailAction"
-            app:destination="@id/fragment_show_detail"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim">
-
-            <argument
-                android:name="showId"
-                app:argType="string"
-                app:nullable="false" />
-
-        </action>
     </fragment>
 
     <fragment
         android:id="@+id/fragment_movie_detail"
-        android:name="io.appwrite.videoreel.movie.MovieDetailFragment"
+        android:name="io.appwrite.almostnetflix.movie.MovieDetailFragment"
         android:label="@string/movie_details"
         tools:layout="@layout/fragment_movie_detail">
 
@@ -153,35 +155,8 @@
     </fragment>
 
     <fragment
-        android:id="@+id/fragment_show_detail"
-        android:name="io.appwrite.videoreel.show.ShowDetailFragment"
-        android:label="@string/show_details"
-        tools:layout="@layout/fragment_show_detail">
-
-        <argument
-            android:name="showId"
-            app:argType="string"
-            app:nullable="false" />
-
-        <action
-            android:id="@+id/showDetailToConsumeAction"
-            app:destination="@id/consumeContentFragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim">
-
-            <argument
-                android:name="showId"
-                app:argType="string"
-                app:nullable="false" />
-
-        </action>
-    </fragment>
-
-    <fragment
         android:id="@+id/consumeContentFragment"
-        android:name="io.appwrite.videoreel.consume.ConsumeContentFragment"
+        android:name="io.appwrite.almostnetflix.consume.ConsumeContentFragment"
         android:label="@string/consume"
         tools:layout="@layout/fragment_consume_content">
 

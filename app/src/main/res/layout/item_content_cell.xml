@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="io.appwrite.videoreel.feed.ContentCellViewModel" />
+            type="io.appwrite.almostnetflix.feed.ContentCellViewModel" />
     </data>
 
     <FrameLayout xmlns:app="http://schemas.android.com/apk/res-auto"

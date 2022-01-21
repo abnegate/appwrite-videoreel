@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">VideoReel</string>
+    <string name="app_name">Almost Netflix</string>
     <string name="user_name_invalid">Invalid user name.</string>
     <string name="user_password_invalid">Invalid password.</string>
     <string name="create_session_failed">Create session failed.</string>
@@ -20,4 +20,5 @@
     <string name="content_card_transition_name">content_card_%1$s</string>
     <string name="content_card_detail_transition_name">content_card_detail</string>
     <string name="hint_user_email">Email</string>
+    <string name="splash">Splash</string>
 </resources>

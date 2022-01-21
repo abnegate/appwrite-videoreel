@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
 
         <variable
             name="viewModel"
-            type="io.appwrite.almostnetflix.consume.ConsumeContentFragment" />
-
+            type="io.appwrite.almostnetflix.splash.SplashViewModel" />
     </data>
 
-    <FrameLayout xmlns:tools="http://schemas.android.com/tools"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".consume.ConsumeContentFragment">
+        android:background="@color/black">
 
-        <TextView
+        <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Hello" />
+            android:layout_gravity="center"
+            android:scaleType="centerCrop"
+            android:src="@drawable/bg"/>
 
     </FrameLayout>
 </layout>

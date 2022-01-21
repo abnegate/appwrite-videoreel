@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="io.appwrite.videoreel.feed.FeedViewModel" />
+            type="io.appwrite.almostnetflix.feed.FeedViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

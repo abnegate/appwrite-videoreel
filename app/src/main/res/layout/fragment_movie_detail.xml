@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="io.appwrite.videoreel.movie.MovieDetailViewModel" />
+            type="io.appwrite.almostnetflix.movie.MovieDetailViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

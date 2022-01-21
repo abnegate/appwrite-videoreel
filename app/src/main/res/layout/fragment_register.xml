@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="io.appwrite.videoreel.register.RegisterViewModel" />
+            type="io.appwrite.almostnetflix.login.AuthViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
