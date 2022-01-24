@@ -1,7 +1,6 @@
 package io.appwrite.almostnetflix.feed
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -9,13 +8,13 @@ import io.appwrite.almostnetflix.databinding.ItemFeedCategoryBinding
 import io.appwrite.almostnetflix.model.Category
 import io.appwrite.almostnetflix.model.Movie
 
-class FeedCategoryAdapter(private val onNestedItemSelected: (View, Movie) -> Unit) :
+class FeedCategoryAdapter(private val onNestedItemSelected: (Movie) -> Unit) :
     ListAdapter<Map.Entry<Category, Set<Movie>>, FeedCategoryViewHolder>(object :
         DiffUtil.ItemCallback<Map.Entry<Category, Set<Movie>>>() {
 
         override fun areItemsTheSame(
             oldItem: Map.Entry<Category, Set<Movie>>,
-            newItem: Map.Entry<Category, Set<Movie>>
+            newItem: Map.Entry<Category, Set<Movie>>,
         ): Boolean {
             return oldItem.key == newItem.key
         }

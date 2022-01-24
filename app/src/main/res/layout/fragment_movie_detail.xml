@@ -9,91 +9,100 @@
             type="io.appwrite.almostnetflix.movie.MovieDetailViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:tools="http://schemas.android.com/tools"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".movie.MovieFragment"
-        android:transitionName="@string/content_card_detail_transition_name">
+        android:layout_height="wrap_content"
+        android:background="@color/black">
 
-        <ImageView
-            android:id="@+id/previewImage"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:appwriteImage="@{viewModel.movie.thumbnailImageId}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_min="250dp"
-            app:layout_constraintHeight_percent="0.3"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/appIconImage"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_margin="@dimen/margin_4"
-            android:background="@color/black"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/userProfileImage"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_margin="@dimen/margin_4"
-            android:background="@color/black"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/previewThumbnailImage"
-            android:layout_width="250dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="@dimen/margin_4"
-            android:layout_marginTop="@dimen/margin_4"
-            android:background="@color/black"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/appIconImage" />
-
-        <TextView
-            android:id="@+id/previewDescriptionText"
-            android:layout_width="0dp"
+        <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_4"
-            android:text="@string/lorem"
-            android:textSize="@dimen/text_paragraph"
-            app:layout_constraintBottom_toTopOf="@id/buttonBarrier"
-            app:layout_constraintEnd_toEndOf="@id/previewThumbnailImage"
-            app:layout_constraintStart_toStartOf="@id/previewThumbnailImage"
-            app:layout_constraintTop_toBottomOf="@id/previewThumbnailImage" />
+            tools:context=".movie.MovieFragment">
 
-        <androidx.constraintlayout.widget.Barrier
-            android:id="@+id/buttonBarrier"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:barrierDirection="top"
-            app:constraint_referenced_ids="playButton, moreInfoButton" />
+            <ImageView
+                android:id="@+id/previewImage"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:scaleType="centerCrop"
+                app:appwriteImage="@{viewModel.movie.thumbnailImageId}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_min="300dp"
+                app:layout_constraintHeight_percent="0.3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/playButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_4"
-            android:text="@string/play"
-            app:layout_constraintEnd_toStartOf="@id/moreInfoButton"
-            app:layout_constraintStart_toStartOf="@id/previewDescriptionText"
-            app:layout_constraintTop_toBottomOf="@id/buttonBarrier" />
+            <TextView
+                android:id="@+id/nameText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_4"
+                android:text="@{viewModel.movie.name}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/previewImage"
+                tools:text="@string/lorem" />
 
-        <Button
-            android:id="@+id/moreInfoButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_4"
-            android:layout_marginTop="@dimen/margin_4"
-            android:text="@string/moreInfo"
-            app:layout_constraintStart_toEndOf="@id/playButton"
-            app:layout_constraintTop_toBottomOf="@id/buttonBarrier" />
+            <TextView
+                android:id="@+id/yearText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_4"
+                android:text="@{viewModel.releaseYear}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_subheading"
+                app:layout_constraintEnd_toStartOf="@id/ratingText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/nameText"
+                tools:text="@string/lorem" />
 
+            <TextView
+                android:id="@+id/ratingText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_4"
+                android:text="@{viewModel.movie.ageRestriction.name()}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_subheading"
+                app:layout_constraintEnd_toStartOf="@id/durationText"
+                app:layout_constraintStart_toEndOf="@id/yearText"
+                app:layout_constraintTop_toBottomOf="@id/nameText"
+                tools:text="@string/lorem" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/durationText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_4"
+                android:text="@{viewModel.duration}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_subheading"
+                app:layout_constraintStart_toEndOf="@id/ratingText"
+                app:layout_constraintTop_toBottomOf="@id/nameText"
+                tools:text="@string/lorem" />
+
+            <TextView
+                android:id="@+id/descriptionText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_4"
+                android:text="@{viewModel.movie.description}"
+                android:textSize="@dimen/text_paragraph"
+                android:textColor="@color/white"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/yearText"
+                tools:text="@string/lorem" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> viewModel.toggleInWatchlist()}"
+                android:text="@string/myList"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/descriptionText" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </layout>

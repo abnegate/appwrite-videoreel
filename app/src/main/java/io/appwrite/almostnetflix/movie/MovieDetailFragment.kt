@@ -8,9 +8,8 @@ import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
-import io.appwrite.Client
 import io.appwrite.almostnetflix.R
-import io.appwrite.almostnetflix.content.ContentDetailViewModelFactory
+import io.appwrite.almostnetflix.core.ContentDetailViewModelFactory
 import io.appwrite.almostnetflix.core.Configuration
 import io.appwrite.almostnetflix.core.Message
 import io.appwrite.almostnetflix.core.hideSoftKeyBoard
@@ -22,28 +21,10 @@ class MovieDetailFragment : Fragment() {
 
     private val viewModel by viewModels<MovieDetailViewModel> {
         ContentDetailViewModelFactory(
-            client = Client(requireContext())
-                .setEndpoint(Configuration.ENDPOINT)
-                .setProject(Configuration.PROJECT_ID),
-            movieId = args.movieId
+            Configuration.client,
+            args.userId,
+            args.movieId
         )
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-//        sharedElementEnterTransition = MaterialContainerTransform().apply {
-//            drawingViewId = R.id.nav_host_fragment
-//            duration = 1200.toLong()
-//            scrimColor = Color.TRANSPARENT
-//
-//            val typedArray = requireContext().obtainStyledAttributes(
-//                intArrayOf(R.attr.colorSurface)
-//            )
-//            val colorSet = typedArray.getColor(0, Color.MAGENTA)
-//            setAllContainerColors(colorSet)
-//            typedArray.recycle()
-//        }
     }
 
     override fun onCreateView(

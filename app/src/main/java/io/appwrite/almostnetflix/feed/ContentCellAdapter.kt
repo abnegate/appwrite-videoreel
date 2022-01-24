@@ -1,14 +1,13 @@
 package io.appwrite.almostnetflix.feed
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import io.appwrite.almostnetflix.databinding.ItemContentCellBinding
 import io.appwrite.almostnetflix.model.Movie
 
-class ContentCellAdapter(private val onItemClicked: (View, Movie) -> Unit) :
+class ContentCellAdapter(private val onItemClicked: (Movie) -> Unit) :
     ListAdapter<Movie, ContentCellViewHolder>(object : DiffUtil.ItemCallback<Movie>() {
         override fun areItemsTheSame(oldItem: Movie, newItem: Movie): Boolean {
             return oldItem.id == newItem.id

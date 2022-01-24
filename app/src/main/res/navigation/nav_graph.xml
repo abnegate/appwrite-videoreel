@@ -120,6 +120,11 @@
             app:destination="@id/fragment_movie_detail">
 
             <argument
+                android:name="userId"
+                app:argType="string"
+                app:nullable="false" />
+
+            <argument
                 android:name="movieId"
                 app:argType="string"
                 app:nullable="false" />
@@ -132,6 +137,11 @@
         android:name="io.appwrite.almostnetflix.movie.MovieDetailFragment"
         android:label="@string/movie_details"
         tools:layout="@layout/fragment_movie_detail">
+
+        <argument
+            android:name="userId"
+            app:argType="string"
+            app:nullable="false" />
 
         <argument
             android:name="movieId"

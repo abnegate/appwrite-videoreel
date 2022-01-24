@@ -5,5 +5,5 @@ data class Category(
     val queries: List<String>,
     val orderAttributes: List<String>,
     val orderTypes: List<String>,
-    val collectionName: String? = null
+    val collectionName: String? = null,
 )

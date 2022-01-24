@@ -11,6 +11,7 @@ object Configuration {
     const val ENDPOINT = "https://demo.appwrite.io/v1"
     const val PROJECT_ID = "almostNetflix2"
     const val MOVIE_COLLECTION_ID = "movies"
+    const val WATCHLIST_COLLECTION_ID = "watchlists"
 
     val categories = listOf(
         Category(

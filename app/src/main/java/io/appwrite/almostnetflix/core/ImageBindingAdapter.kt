@@ -6,8 +6,6 @@ import androidx.lifecycle.findViewTreeLifecycleOwner
 import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
-import io.appwrite.Client
-import io.appwrite.services.Storage
 import kotlinx.coroutines.launch
 
 @BindingAdapter("imageUrl")

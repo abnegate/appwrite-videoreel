@@ -21,4 +21,6 @@
     <string name="content_card_detail_transition_name">content_card_detail</string>
     <string name="hint_user_email">Email</string>
     <string name="splash">Splash</string>
+    <string name="myList">My List</string>
+    <string name="info">Info</string>
 </resources>

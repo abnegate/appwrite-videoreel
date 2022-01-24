@@ -4,15 +4,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import io.appwrite.Client
-import io.appwrite.exceptions.AppwriteException
-import io.appwrite.models.Session
-import io.appwrite.services.Account
-import io.appwrite.services.Database
 import io.appwrite.almostnetflix.core.*
+import io.appwrite.exceptions.AppwriteException
 import io.appwrite.models.User
+import io.appwrite.services.Account
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
-import java.lang.Exception
 
 class AuthViewModel(private val client: Client) : BaseViewModel() {
 

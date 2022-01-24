@@ -1,6 +1,5 @@
 package io.appwrite.almostnetflix.feed
 
-import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import io.appwrite.almostnetflix.BR
 import io.appwrite.almostnetflix.databinding.ItemFeedCategoryBinding
@@ -11,7 +10,7 @@ class FeedCategoryViewHolder(
     private val binding: ItemFeedCategoryBinding,
 ) : RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(item: Map.Entry<Category, Set<Movie>>, onNestedItemSelected: (View, Movie) -> Unit) {
+    fun bind(item: Map.Entry<Category, Set<Movie>>, onNestedItemSelected: (Movie) -> Unit) {
         val movieList = item.value.toList()
 
         val vm = FeedCategoryViewModel(

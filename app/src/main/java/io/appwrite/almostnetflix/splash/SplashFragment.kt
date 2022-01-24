@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import io.appwrite.almostnetflix.core.*
-import io.appwrite.almostnetflix.databinding.FragmentLoginBinding
 import io.appwrite.almostnetflix.databinding.FragmentSplashBinding
 import io.appwrite.models.User
 

@@ -42,10 +42,12 @@
     <dimen name="text_3">14sp</dimen>
     <dimen name="text_2">16sp</dimen>
     <dimen name="text_1">18sp</dimen>
+    <dimen name="text_0">24sp</dimen>
+
 
     <dimen name="text_heading">@dimen/text_1</dimen>
-    <dimen name="text_subheading">@dimen/text_3</dimen>
-    <dimen name="text_paragraph">@dimen/text_4</dimen>
+    <dimen name="text_subheading">@dimen/text_2</dimen>
+    <dimen name="text_paragraph">@dimen/text_3</dimen>
     <dimen name="content_cell_thumb_width">180dp</dimen>
     <dimen name="content_cell_thumb_height">100dp</dimen>
 </resources>
